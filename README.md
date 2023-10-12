@@ -24,8 +24,8 @@ How to add to path: (Credit: https://windowsloop.com/how-to-add-to-windows-path/
 
 Make a batch file that will run the .exe file.
 Barch code: Include the exe in path!!! Ex.(C:\ProgramFolde\program.exe)
-@echo off
-echo Running My Program
+@echo off \n
+echo Running My Program \n
 "C:\Path\to\program"
 
 Name the .bat file something simple and short, you will be using the bat file name to call it in CMD.
