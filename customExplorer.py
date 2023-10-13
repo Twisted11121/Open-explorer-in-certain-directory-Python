@@ -5,23 +5,16 @@ from time import sleep
 
 
 
-userDisk = int(input("Drive C:\ = 1, Drive D:\ = 2: "))
+userDisk = int(input("Drive C:\ = 1, Drive D:\ = 2 OR Open current directory = 3: "))
 
 def main1():
     if userDisk == 1:
         initial_directory = 'C:\\'
         while True:
-            os.chdir(initial_directory)  # Ensure the script starts in the desired directory
+            os.chdir(initial_directory)
 
-            # Always run the 'dir' command
+
             subprocess.run('dir', shell=True)
-
-            dirShowCase = input("Do you want to display the contents of the Directory (y/n): ")
-
-            if dirShowCase == "y":
-                userFolderDisplay = input("Input DIR PATH to display: ")
-                userFolderDisplayNEW = userFolderDisplay.replace('/', "\\")
-                subprocess.run(fr'dir {userFolderDisplayNEW}', shell=True)
 
             userFolder = input("Enter the PATH of folder/file: ")
             userFolderNEW = userFolder.replace('/', "\\")
@@ -42,17 +35,10 @@ def main1():
     if userDisk == 2:
         initial_directory = 'D:\\'
         while True:
-            os.chdir(initial_directory)  # Ensure the script starts in the desired directory
+            os.chdir(initial_directory)
 
-            # Always run the 'dir' command
+
             subprocess.run('dir', shell=True)
-
-            dirShowCase = input("Do you want to display the contents of the Directory (y/n): ")
-
-            if dirShowCase == "y":
-                userFolderDisplay = input("Input DIR PATH to display: ")
-                userFolderDisplayNEW = userFolderDisplay.replace('/', "\\")
-                subprocess.run(fr'dir {userFolderDisplayNEW}', shell=True)
 
             userFolder = input("Enter the PATH of folder/file: ")
             userFolderNEW = userFolder.replace('/', "\\")
@@ -69,7 +55,14 @@ def main1():
                 pass
     else:
         pass
+        
+    if userDisk == 3:
+        userLoc = os.getcwd()
+        subprocess.Popen(fr'explorer "{userLoc}"')
+    else:
+        pass
 
 
 if __name__ == "__main__":
         main1()
+
